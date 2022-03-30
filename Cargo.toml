@@ -8,3 +8,9 @@ edition = "2021"
 [dependencies]
 walkdir = "2.3.2"
 clap = { version = "3.1.6", features = ["derive"] }
+blake2 = "0.8"
+blake3="0.1"
+sha2 = "0.8"
+sha3 = "0.8"
+digest = "0.8"
+sha1="0.6"

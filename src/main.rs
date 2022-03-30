@@ -4,13 +4,7 @@
 use clap::Parser;
 
 
-//#[derive(Parser, Debug)]
-//struct Args {
-//    #[clap(short, long, default_value = ".")]
-//    /// Initial directory location
-//    pub starting_dir: String,
-//    }
-/// Simple program to greet a person
+/// Simple program to calculate a directory-tree checksum
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
@@ -23,6 +17,13 @@ struct Args {
     count: u8,
 }
 
+fn is_not_hidden(entry: &DirEntry) -> bool {
+    entry
+        .file_name()
+        .to_str()
+        .map(|s| entry.depth() == 0 || !s.starts_with("."))
+        .unwrap_or(false)
+}
 use walkdir::{DirEntry, WalkDir};
 fn main() {
     let args = Args::parse();
@@ -33,11 +34,4 @@ fn main() {
         .filter_entry(|e| is_not_hidden(e))
         .filter_map(|v| v.ok())
         .for_each(|x| println!("{}", x.path().display()));
-}
-fn is_not_hidden(entry: &DirEntry) -> bool {
-    entry
-        .file_name()
-        .to_str()
-        .map(|s| entry.depth() == 0 || !s.starts_with("."))
-        .unwrap_or(false)
 }
