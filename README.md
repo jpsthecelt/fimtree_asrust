@@ -10,3 +10,4 @@ o Still needs addition of multiple threads
 
 o Still needs channels implementation and multiple producer; one consumer
 
+o may want to add update of a remote DB (like PG)
