@@ -1,6 +1,6 @@
 # fimtree_asrust
 version of fimtree rendered in rust (it looks like this):
-![sample-run image](https://github.com/jpsthecelt/fimtree_asrust/images/sample-run.gif)
+![sample-run image](/images/sample-run.gif)
 
 Does a 'tree_walk' to find non-hidden files
 and currently only calculates SHA1 checksums
